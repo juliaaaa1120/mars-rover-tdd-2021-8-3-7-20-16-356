@@ -38,6 +38,8 @@ public class MarsRover {
             this.direction = "E";
         } else if (this.direction.equals("E")) {
             this.direction = "N";
+        } else if (this.direction.equals("W")) {
+            this.direction = "S";
         }
     }
 
