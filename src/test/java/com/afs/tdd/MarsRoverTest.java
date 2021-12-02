@@ -128,4 +128,46 @@ public class MarsRoverTest {
         //then
         assertEquals("0 0 E", result);
     }
+
+    @Test
+    public void should_direction_return_W_when_execute_command_given_direction_S_and_command_R() throws Exception {
+        //given
+        MarsRover marsRover = new MarsRover(0, 0, "S");
+        String command = "R";
+
+        //when
+        marsRover.executeCommand(command);
+        String result = marsRover.getStatus();
+
+        //then
+        assertEquals("0 0 W", result);
+    }
+
+    @Test
+    public void should_direction_return_S_when_execute_command_given_direction_E_and_command_R() throws Exception {
+        //given
+        MarsRover marsRover = new MarsRover(0, 0, "E");
+        String command = "R";
+
+        //when
+        marsRover.executeCommand(command);
+        String result = marsRover.getStatus();
+
+        //then
+        assertEquals("0 0 S", result);
+    }
+
+    @Test
+    public void should_direction_return_N_when_execute_command_given_direction_W_and_command_R() throws Exception {
+        //given
+        MarsRover marsRover = new MarsRover(0, 0, "W");
+        String command = "R";
+
+        //when
+        marsRover.executeCommand(command);
+        String result = marsRover.getStatus();
+
+        //then
+        assertEquals("0 0 N", result);
+    }
 }
