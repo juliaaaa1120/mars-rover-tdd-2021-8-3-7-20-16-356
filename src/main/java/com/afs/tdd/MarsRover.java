@@ -16,10 +16,12 @@ public class MarsRover {
     }
 
     public void move() {
-        if (this.direction == "N") {
+        if (this.direction.equals("N")) {
             this.locationY++;
-        } else if (this.direction == "S") {
+        } else if (this.direction.equals("S")) {
             this.locationY--;
+        } else if (this.direction.equals("E")) {
+            this.locationX++;
         }
     }
 
