@@ -12,7 +12,11 @@ public class MarsRover {
     }
 
     public void executeCommand(String command) {
-        move();
+        if (command.equals("M")) {
+            this.move();
+        } else if (command.equals("L")) {
+            this.turnLeft();
+        }
     }
 
     public void move() {
@@ -22,7 +26,13 @@ public class MarsRover {
             this.locationY--;
         } else if (this.direction.equals("E")) {
             this.locationX++;
+        } else if (this.direction.equals("W")) {
+            this.locationX--;
         }
+    }
+
+    public void turnLeft() {
+        this.direction = "W";
     }
 
     public String getStatus() {
