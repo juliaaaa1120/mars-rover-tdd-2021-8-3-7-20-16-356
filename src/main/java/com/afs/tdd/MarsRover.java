@@ -32,7 +32,11 @@ public class MarsRover {
     }
 
     public void turnLeft() {
-        this.direction = "W";
+        if (this.direction.equals("N")) {
+            this.direction = "W";
+        } else if (this.direction.equals("S")) {
+            this.direction = "E";
+        }
     }
 
     public String getStatus() {
