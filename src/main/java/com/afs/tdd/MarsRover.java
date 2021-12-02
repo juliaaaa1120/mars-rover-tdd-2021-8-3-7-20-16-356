@@ -11,17 +11,23 @@ public class MarsRover {
         this.direction = direction;
     }
 
-    public void executeCommand(String command) {
-        switch (command) {
-            case "M":
+    private void executeCommands(char commands) {
+        switch (commands) {
+            case 'M':
                 this.move();
                 break;
-            case "L":
+            case 'L':
                 this.turnLeft();
                 break;
-            case "R":
+            case 'R':
                 this.turnRight();
                 break;
+        }
+    }
+
+    public void executeCommand(String command) {
+        for (char ch : command.toCharArray()) {
+            executeCommands(ch);
         }
     }
 

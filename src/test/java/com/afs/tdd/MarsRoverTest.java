@@ -172,7 +172,7 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void should_return_correct_result_when_execute_command_given_direction_and_multiples_commands() throws Exception {
+    public void should_return_correct_result_when_execute_command_given_direction_and_multiple_commands() throws Exception {
         //given
         MarsRover marsRover = new MarsRover(0, 0, "N");
         String command = "MLMR";
