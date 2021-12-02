@@ -16,7 +16,11 @@ public class MarsRover {
     }
 
     public void move() {
-        this.locationY++;
+        if (this.direction == "N") {
+            this.locationY++;
+        } else if (this.direction == "S") {
+            this.locationY--;
+        }
     }
 
     public String getStatus() {
