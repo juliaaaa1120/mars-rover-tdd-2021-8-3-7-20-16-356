@@ -170,4 +170,18 @@ public class MarsRoverTest {
         //then
         assertEquals("0 0 N", result);
     }
+
+    @Test
+    public void should_return_correct_result_when_execute_command_given_direction_and_multiples_commands() throws Exception {
+        //given
+        MarsRover marsRover = new MarsRover(0, 0, "N");
+        String command = "MLMR";
+
+        //when
+        marsRover.executeCommand(command);
+        String result = marsRover.getStatus();
+
+        //then
+        assertEquals("-1 1 N", result);
+    }
 }
