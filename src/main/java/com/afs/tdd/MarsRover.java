@@ -12,10 +12,14 @@ public class MarsRover {
     }
 
     public void executeCommand(String command) {
+        move();
+    }
 
+    public void move() {
+        this.locationY++;
     }
 
     public String getStatus() {
-        return null;
+        return String.format("%d %d %s", this.locationX, this.locationY, this.direction);
     }
 }
