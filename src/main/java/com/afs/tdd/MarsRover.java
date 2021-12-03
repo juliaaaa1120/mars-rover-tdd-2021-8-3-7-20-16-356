@@ -1,9 +1,13 @@
 package com.afs.tdd;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class MarsRover {
     private int locationX;
     private int locationY;
     private String direction;
+    private List<String> directionList = Arrays.asList("N", "E", "S", "W");
 
     public MarsRover(int locationX, int locationY, String direction) {
         this.locationX = locationX;
@@ -11,8 +15,8 @@ public class MarsRover {
         this.direction = direction;
     }
 
-    private void executeCommands(char commands) {
-        switch (commands) {
+    private void executeCommands(char command) {
+        switch (command) {
             case 'M':
                 this.move();
                 break;
@@ -25,9 +29,9 @@ public class MarsRover {
         }
     }
 
-    public void executeCommand(String command) {
-        for (char ch : command.toCharArray()) {
-            executeCommands(ch);
+    public void executeCommand(String commands) {
+        for (char command : commands.toCharArray()) {
+            executeCommands(command);
         }
     }
 
@@ -49,37 +53,15 @@ public class MarsRover {
     }
 
     public void turnLeft() {
-        switch (this.direction) {
-            case "N":
-                this.direction = "W";
-                break;
-            case "S":
-                this.direction = "E";
-                break;
-            case "E":
-                this.direction = "N";
-                break;
-            case "W":
-                this.direction = "S";
-                break;
-        }
+        int currentIndex = directionList.indexOf(this.direction);
+        int newIndex = currentIndex == 0 ? directionList.size() - 1 : (currentIndex - 1);
+        this.direction = directionList.get(newIndex);
     }
 
     public void turnRight() {
-        switch (this.direction) {
-            case "N":
-                this.direction = "E";
-                break;
-            case "S":
-                this.direction = "W";
-                break;
-            case "E":
-                this.direction = "S";
-                break;
-            case "W":
-                this.direction = "N";
-                break;
-        }
+        int currentIndex = directionList.indexOf(this.direction);
+        int newIndex = currentIndex == directionList.size() - 1 ? 0 : (currentIndex + 1);
+        this.direction = directionList.get(newIndex);
     }
 
     public String getStatus() {
